@@ -37,21 +37,36 @@
   background: var(--bg); color: var(--ink); font-weight: 500;
 }
 
-/* Menú móvil: panel a pantalla completa bajo la barra / Mobile menu: full panel under the bar */
+/* Menú móvil. Sin JS los enlaces se ven siempre, en varias líneas; solo se pliegan cuando el script
+   añade .con-menu a la barra. / Mobile menu. Without JS the links always show, wrapped; they only fold
+   when the script adds .con-menu to the bar. */
 @media (max-width: 960px) {
-  .menu-boton { display: inline-flex; align-items: center; }
-  .barra-enlaces {
+  .barra { flex-wrap: wrap; }
+  .barra:not(.con-menu) .barra-enlaces { margin-left: 0; width: 100%; flex-wrap: wrap; gap: 4px 8px; }
+  .barra.con-menu .menu-boton { display: inline-flex; align-items: center; }
+  .barra.con-menu .barra-enlaces {
     display: none; position: absolute; left: 0; right: 0; top: 100%; margin: 0;
     flex-direction: column; align-items: stretch; gap: 0; padding: 8px var(--m) 24px; background: var(--ink);
   }
-  .barra.abierta .barra-enlaces { display: flex; }
-  .barra-enlaces a, .barra-enlaces .pausa { min-height: 52px; padding: 0 4px; font-size: var(--step-lead); justify-content: flex-start; }
-  .barra-enlaces .barra-accion { margin-top: 12px; justify-content: center; font-size: var(--step-body); }
+  .barra.con-menu.abierta .barra-enlaces { display: flex; }
+  .barra.con-menu .barra-enlaces a, .barra.con-menu .barra-enlaces .pausa { min-height: 52px; padding: 0 4px; font-size: var(--step-lead); justify-content: flex-start; }
+  .barra.con-menu .barra-enlaces .barra-accion { margin-top: 12px; justify-content: center; font-size: var(--step-body); }
 }
 
 /* ===== Pausa: todo lo que se mueve solo se detiene ===== */
 /* ===== Pause: everything that moves by itself stops ===== */
+/* Movimiento continuo: solo existe cuando el script pone .con-movimiento (nunca sin JS ni, al inicio,
+   con movimiento reducido) y se congela con .pausado. / Continuous motion: only exists once the script
+   sets .con-movimiento (never without JS nor, at first, with reduced motion) and freezes with .pausado. */
+.con-movimiento .foto-capa.activa img { animation: deriva 7.5s var(--ease-soft) both; }
+.con-movimiento .aro-giro { animation: gira 90s linear infinite; }
 .pausado .aro-giro, .pausado .foto-capa.activa img { animation-play-state: paused; }
+/* Los botones con [hidden] no se ven aunque tengan display propio / [hidden] buttons stay hidden despite their own display */
+.pausa[hidden], .menu-boton[hidden] { display: none; }
+/* Botón de enviar desactivado hasta que hay JS / Submit button disabled until JS runs */
+.cupon-enviar:disabled { cursor: not-allowed; }
+.cupon-noscript { font-weight: 500; background: var(--bg); color: var(--ink); padding: 10px 12px; }
+.cupon-noscript a { color: var(--ink); }
 
 /* ===== Cupón con etiquetas visibles y errores ===== */
 /* ===== Coupon with visible labels and errors ===== */

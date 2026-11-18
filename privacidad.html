@@ -51,13 +51,15 @@
   <!-- ============ NAVIGATION BAR ============ -->
   <header class="barra sobre-tinta" id="arriba">
     <a class="barra-marca" href="index.html" aria-label="Conservas Atalayero, portada"><svg viewBox="0 0 40 64" aria-hidden="true" focusable="false"><rect x="12" y="0" width="16" height="8"/><rect x="4" y="12" width="32" height="10"/><rect x="8" y="26" width="24" height="38"/><rect x="16" y="40" width="8" height="12" class="hueco"/></svg><span>Atalayero</span></a>
-    <button type="button" class="menu-boton" data-menu aria-expanded="false" aria-controls="menu-principal">Menú</button>
+    <!-- El botón solo aparece cuando el script pliega el menú; sin JS los enlaces se ven siempre -->
+    <!-- The button only shows once the script folds the menu; without JS the links are always visible -->
+    <button type="button" class="menu-boton" data-menu aria-expanded="false" aria-controls="menu-principal" hidden>Menú</button>
     <nav class="barra-enlaces" id="menu-principal" aria-label="Principal">
         <a href="tienda.html">Tienda</a>
         <a href="almadraba.html">La almadraba</a>
         <a href="sobre-nosotros.html">Sobre nosotros</a>
         <a href="contacto.html">Contacto</a>
-        <button type="button" class="pausa" data-pausa aria-pressed="false">Pausar movimiento</button>
+        <button type="button" class="pausa" data-pausa aria-pressed="false" hidden>Pausar movimiento</button>
         <a class="barra-accion" href="index.html#despiece">Montar mi caja</a>
     </nav>
   </header>
@@ -91,9 +93,10 @@
         <p>Esta es una web de demostración de una marca ficticia. El responsable del sitio es Daniel Castaños Mefle; sus datos están en <a href="https://danimefle.com/aviso-legal">el aviso legal de danimefle.com</a>.</p>
 
         <h2 id="formularios">El cupón y los formularios</h2>
-        <p>Ni el cupón de pedido ni ningún otro formulario envía datos a un servidor. Al pulsar «Enviar el cupón», tu navegador abre tu programa de correo con un mensaje escrito para una dirección de ejemplo (<code>pedidos@atalayero.example</code>) que no existe.</p>
+        <p>Ni el cupón de pedido ni ningún otro formulario envía datos a un servidor, tampoco a esta web. Al pulsar «Enviar el cupón», tu navegador abre tu programa de correo con un mensaje escrito para una dirección de ejemplo (<code>pedidos@atalayero.example</code>) que no existe.</p>
         <ul>
           <li>Lo que escribes no sale de tu ordenador salvo que tú mandes ese correo.</li>
+          <li>Si tu navegador no ejecuta JavaScript, el botón de enviar se queda desactivado y no se manda nada; en su lugar verás la dirección de correo de ejemplo.</li>
           <li>La web no guarda lo que escribes, ni en el servidor ni en tu navegador.</li>
           <li>La caja de latas que montas se borra al cerrar o recargar la página.</li>
         </ul>

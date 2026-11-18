@@ -51,13 +51,15 @@
   <!-- ============ NAVIGATION BAR ============ -->
   <header class="barra sobre-tinta" id="arriba">
     <a class="barra-marca" href="index.html" aria-label="Conservas Atalayero, portada"><svg viewBox="0 0 40 64" aria-hidden="true" focusable="false"><rect x="12" y="0" width="16" height="8"/><rect x="4" y="12" width="32" height="10"/><rect x="8" y="26" width="24" height="38"/><rect x="16" y="40" width="8" height="12" class="hueco"/></svg><span>Atalayero</span></a>
-    <button type="button" class="menu-boton" data-menu aria-expanded="false" aria-controls="menu-principal">Menú</button>
+    <!-- El botón solo aparece cuando el script pliega el menú; sin JS los enlaces se ven siempre -->
+    <!-- The button only shows once the script folds the menu; without JS the links are always visible -->
+    <button type="button" class="menu-boton" data-menu aria-expanded="false" aria-controls="menu-principal" hidden>Menú</button>
     <nav class="barra-enlaces" id="menu-principal" aria-label="Principal">
         <a href="tienda.html">Tienda</a>
         <a href="almadraba.html" aria-current="page">La almadraba</a>
         <a href="sobre-nosotros.html">Sobre nosotros</a>
         <a href="contacto.html">Contacto</a>
-        <button type="button" class="pausa" data-pausa aria-pressed="false">Pausar movimiento</button>
+        <button type="button" class="pausa" data-pausa aria-pressed="false" hidden>Pausar movimiento</button>
         <a class="barra-accion" href="index.html#despiece">Montar mi caja</a>
     </nav>
   </header>
@@ -141,7 +143,7 @@
               <figcaption>Anclas que sujetan la almadraba al fondo cada primavera</figcaption>
             </figure>
             <figure class="figura" data-reveal style="--i:1">
-              <div class="marco"><video autoplay muted loop playsinline preload="metadata" poster="assets/video/atunes-red-poster.webp" width="640" height="480" aria-hidden="true" data-video><source src="assets/video/atunes-red.webm" type="video/webm"></video></div>
+              <div class="marco"><video muted loop playsinline preload="metadata" poster="assets/video/atunes-red-poster.webp" width="640" height="480" aria-hidden="true" data-video><source src="assets/video/atunes-red.webm" type="video/webm"></video></div>
               <figcaption>Atunes rojos dentro de una red en el Mediterráneo, durante un estudio de marcado</figcaption>
             </figure>
           </div>

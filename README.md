@@ -34,11 +34,12 @@ del atalayero, el vigía que avisaba de la entrada del atún. Forma parte del po
 ## Verla en local
 
 ```bash
-node server.js          # http://localhost:8080
+node server.js          # http://127.0.0.1:8080
 node server.js 3000     # otro puerto
 ```
 
-`server.js` usa solo módulos nativos de Node (versión 22 o superior). Sirve las rutas sin `.html` como Cloudflare
+`server.js` usa solo módulos nativos de Node (versión 22 o superior) y solo escucha en `127.0.0.1`. No sirve ficheros
+ni carpetas ocultas (`.git`…) y comprueba la ruta real de cada fichero. Sirve las rutas sin `.html` como Cloudflare
 Pages, usa `404.html` y aplica las cabeceras de `_headers`. En local quita HSTS y `upgrade-insecure-requests`, porque
 no hay HTTPS. También se puede abrir `index.html` directamente en el navegador.
 
@@ -54,7 +55,7 @@ no hay HTTPS. También se puede abrir `index.html` directamente en el navegador.
 
 - **Textos y páginas:** las páginas se generan con `python herramientas/generador/generar.py`. Edita el fragmento de
   `herramientas/generador/paginas/` y vuelve a generar. Cabecera, barra, pie, cupón, catálogo y créditos están en
-  `generar.py` (Python 3.11 o superior, sin dependencias).
+  `generar.py` (Python 3.11 o superior; Pillow solo para rehacer las imágenes Open Graph).
 - **Precios:** solo en `CATALOGO` de `generar.py`. De ahí salen la tienda, la tarifa de la portada y `assets/js/datos.js`.
 - **Colores y tipografía:** tokens en `:root` de `assets/css/estilos.css` (`--bg`, `--surface`, `--ink`, `--muted`,
   `--fuente`).
@@ -110,11 +111,12 @@ watchtower. It is part of the [danimefle.com](https://danimefle.com) portfolio.
 ## Run it locally
 
 ```bash
-node server.js          # http://localhost:8080
+node server.js          # http://127.0.0.1:8080
 node server.js 3000     # another port
 ```
 
-`server.js` uses only native Node modules (version 22 or newer). It serves extensionless routes like Cloudflare Pages,
+`server.js` uses only native Node modules (version 22 or newer) and only listens on `127.0.0.1`. It never serves
+hidden files or folders (`.git`…) and checks each file's real path. It serves extensionless routes like Cloudflare Pages,
 uses `404.html` and applies the headers from `_headers`. Locally it drops HSTS and `upgrade-insecure-requests`, as
 there is no HTTPS. You can also open `index.html` directly in the browser.
 
@@ -130,7 +132,7 @@ there is no HTTPS. You can also open `index.html` directly in the browser.
 
 - **Copy and pages:** pages are built with `python herramientas/generador/generar.py`. Edit the fragment in
   `herramientas/generador/paginas/` and build again. The head, bar, footer, coupon, catalogue and credits live in
-  `generar.py` (Python 3.11 or later, no dependencies).
+  `generar.py` (Python 3.11 or later; Pillow only to rebuild the Open Graph images).
 - **Prices:** only in `CATALOGO` in `generar.py`. The shop, the home price list and `assets/js/datos.js` come from it.
 - **Colours and type:** tokens in `:root` of `assets/css/estilos.css` (`--bg`, `--surface`, `--ink`, `--muted`,
   `--fuente`).
