@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Favicon de Conservas Atalayero: la torre almenara en cobalto sobre papel arena -->
+  <!-- Conservas Atalayero favicon: the watchtower in cobalt on sand paper -->
+  <style>
+    .papel { fill: #e6dbc7; } .tinta { fill: #062b8a; }
+    @media (prefers-color-scheme: dark) { .papel { fill: #062b8a; } .tinta { fill: #e6dbc7; } }
+  </style>
+  <rect class="papel" width="64" height="64"/>
+  <rect class="tinta" x="24" y="6" width="16" height="8"/>
+  <rect class="tinta" x="14" y="17" width="36" height="10"/>
+  <rect class="tinta" x="19" y="30" width="26" height="30"/>
+  <rect class="papel" x="28" y="42" width="8" height="10"/>
+</svg>

@@ -1,0 +1,136 @@
+    <!-- ============ CABECERA: la etiqueta con las barcas ============ -->
+    <!-- ============ HEADER: the label with the boats ============ -->
+    <section class="cabecera sobre-tinta" aria-labelledby="t-pagina">
+      <div class="cabecera-etiqueta" data-reveal>
+        <div class="franja" aria-hidden="true">{{FRANJA}}</div>
+        <div class="cabecera-texto">
+          <h1 id="t-pagina">La almadraba</h1>
+          <p class="cabecera-entrada">Un laberinto de redes calado frente a la playa que espera al atún rojo cuando cruza el Estrecho. Es como se pesca aquí desde hace siglos, y de ahí sale todo lo que enlatamos.</p>
+        </div>
+      </div>
+      <figure class="cabecera-foto" data-reveal style="--i:1">
+        <div class="marco"><img src="assets/img/heroe-barcos-barbate.webp" width="1400" height="1750" alt="Barcas de la almadraba amarradas en el muelle de Barbate, con un noray oxidado en primer plano" fetchpriority="high"></div>
+        <figcaption>Barcas de la almadraba en el muelle de Barbate</figcaption>
+      </figure>
+    </section>
+
+    <!-- ============ LA TEMPORADA: calendario de cuatro meses ============ -->
+    <!-- ============ THE SEASON: four-month calendar ============ -->
+    <section class="bloque" aria-labelledby="t-temporada">
+      <div class="bloque-titulo" data-reveal>
+        <h2 id="t-temporada">La temporada</h2>
+        <p>En primavera el atún rojo entra del Atlántico al Mediterráneo para desovar. Es el atún «de derecho»: llega gordo y con la carne en su mejor punto. Solo compramos ese.</p>
+      </div>
+      <div class="bloque-cuerpo">
+        <div class="calendario" data-reveal style="--i:1">
+          <div class="mes"><h3>Abril</h3><ol aria-label="Abril: ninguna semana de pesca"><li></li><li></li><li></li><li></li></ol><p>Se calan las redes y se fondean las anclas.</p></div>
+          <div class="mes"><h3>Mayo</h3><ol aria-label="Mayo: cuatro semanas de pesca"><li class="pesca"></li><li class="pesca"></li><li class="pesca"></li><li class="pesca"></li></ol><p>Levantás casi cada mañana, si el levante deja.</p></div>
+          <div class="mes"><h3>Junio</h3><ol aria-label="Junio: dos semanas de pesca"><li class="pesca"></li><li class="pesca"></li><li></li><li></li></ol><p>Las últimas levantás y se cierra la cocina.</p></div>
+          <div class="mes"><h3>Julio</h3><ol aria-label="Julio: ninguna semana de pesca"><li></li><li></li><li></li><li></li></ol><p>Vuelve el atún «de revés», más flaco. No lo enlatamos.</p></div>
+        </div>
+        <p class="leyenda" data-reveal style="--i:2"><span><i aria-hidden="true"></i>Semana de pesca y cocina</span><span><i class="libre" aria-hidden="true"></i>Sin pesca</span></p>
+      </div>
+    </section>
+
+    <!-- ============ CÓMO SE PESCA: esquema dibujado y pasos ============ -->
+    <!-- ============ HOW IT IS FISHED: drawn layout and steps ============ -->
+    <div class="campo-papel">
+      <section class="bloque" aria-labelledby="t-pesca">
+        <div class="bloque-titulo" data-reveal>
+          <h2 id="t-pesca">Cómo se pesca</h2>
+          <p>Vista desde arriba, la almadraba es una pared de red que corta el paso al atún y lo lleva hacia unas cámaras cerradas. La última es el copo.</p>
+        </div>
+        <div class="bloque-cuerpo">
+          <figure class="esquema" data-reveal style="--i:1">
+            <svg viewBox="0 0 760 420" role="img" aria-labelledby="esq-t esq-d">
+              <title id="esq-t">Esquema de una almadraba vista desde arriba</title>
+              <desc id="esq-d">Desde la playa sale una red larga, la rabera de tierra, hasta un rectángulo de redes dividido en cámaras. Al final del rectángulo está el copo. Por el otro lado sale la rabera de fuera, hacia mar abierto. Las anclas sujetan cada esquina.</desc>
+              <rect x="0" y="0" width="760" height="70" fill="#ddd0b9"/>
+              <text x="20" y="44">Playa</text>
+              <rect x="300" y="70" width="10" height="150" fill="#062b8a"/>
+              <text x="320" y="130">Rabera de tierra</text>
+              <rect x="150" y="220" width="460" height="110" fill="#062b8a"/>
+              <rect x="164" y="234" width="100" height="82" fill="#e6dbc7"/>
+              <rect x="276" y="234" width="100" height="82" fill="#e6dbc7"/>
+              <rect x="388" y="234" width="100" height="82" fill="#e6dbc7"/>
+              <rect x="500" y="234" width="96" height="82" fill="#062b8a" stroke="#e6dbc7" stroke-width="6"/>
+              <text x="190" y="281">Cámara</text><text x="302" y="281">Cámara</text><text x="414" y="281">Cámara</text>
+              <text x="528" y="281" fill="#e6dbc7" style="fill:#e6dbc7">Copo</text>
+              <rect x="610" y="270" width="150" height="10" fill="#062b8a"/>
+              <text x="616" y="306">Rabera de fuera</text>
+              <circle cx="150" cy="220" r="9" fill="#062b8a"/><circle cx="610" cy="220" r="9" fill="#062b8a"/>
+              <circle cx="150" cy="330" r="9" fill="#062b8a"/><circle cx="610" cy="330" r="9" fill="#062b8a"/>
+              <text x="150" y="370">Anclas en cada esquina</text>
+              <text x="20" y="410">Dibujo esquemático, no a escala</text>
+            </svg>
+          </figure>
+          <div class="pasos-pesca">
+            <div data-reveal><h3>Calar</h3><p>En abril se fondean cientos de anclas y se tienden las redes, que bajan desde los corchos de la superficie hasta el fondo. Se tarda unas tres semanas.</p></div>
+            <div data-reveal style="--i:1"><h3>Esperar</h3><p>El atún nada pegado a la costa. Al encontrar la rabera, la sigue y entra en el cuadro. De cámara en cámara acaba en el copo, el único tramo con suelo de red.</p></div>
+            <div data-reveal style="--i:2"><h3>La levantá</h3><p>Al alba, las barcas rodean el copo en cuadro y los pescadores suben el suelo de red a mano hasta que los atunes quedan a la vista. Se eligen uno a uno: los pequeños se sueltan.</p></div>
+            <div data-reveal style="--i:3"><h3>A tierra</h3><p>Los atunes llegan enteros y en hielo al muelle. Desde ahí hasta nuestra cocina hay menos de una hora.</p></div>
+          </div>
+          <div class="par-fotos">
+            <figure class="figura" data-reveal>
+              <div class="marco"><img src="assets/img/heroe-anclas-almadraba.webp" width="1400" height="1280" alt="Fila de anclas oxidadas de la almadraba, apoyadas en la hierba" loading="lazy" decoding="async"></div>
+              <figcaption>Anclas que sujetan la almadraba al fondo cada primavera</figcaption>
+            </figure>
+            <figure class="figura" data-reveal style="--i:1">
+              <div class="marco"><video autoplay muted loop playsinline preload="metadata" poster="assets/video/atunes-red-poster.webp" width="640" height="480" aria-hidden="true" data-video><source src="assets/video/atunes-red.webm" type="video/webm"></video></div>
+              <figcaption>Atunes rojos dentro de una red en el Mediterráneo, durante un estudio de marcado</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ EL RONQUEO: el despiece del atún ============ -->
+    <!-- ============ THE RONQUEO: cutting up the tuna ============ -->
+    <section class="bloque" aria-labelledby="t-ronqueo">
+      <div class="bloque-titulo" data-reveal>
+        <h2 id="t-ronqueo">El ronqueo</h2>
+        <p>Así se llama el despiece del atún. El nombre viene del ruido del cuchillo al rozar la espina, que suena como un ronquido.</p>
+      </div>
+      <div class="bloque-cuerpo">
+        <figure class="pez-grande" data-reveal style="--i:1">
+{{PEZ_GRANDE}}
+        </figure>
+        <div class="cortes">
+          <div class="corte" data-reveal><h3>Morrillo</h3><p>La carne que cubre la parte alta de la cabeza, sobre la nuca. Jugosa y oscura.</p></div>
+          <div class="corte" data-reveal style="--i:1"><h3>Contramormo</h3><p>Una pieza pequeña justo debajo del morrillo. Sale poca de cada atún.</p></div>
+          <div class="corte" data-reveal style="--i:2"><h3>Parpatana</h3><p>La unión entre la cabeza y los lomos, junto a la aleta. Mucho hueso y una carne muy sabrosa; mejor a la brasa que en lata.</p></div>
+          <div class="corte" data-reveal style="--i:3"><h3>Facera</h3><p>La carrillada del atún, en la cara. Se guisa; no la enlatamos.</p></div>
+          <div class="corte" data-reveal><h3>Ventresca</h3><p>La barriga, la parte más grasa. Es la lata más cara y la que antes se acaba.</p></div>
+          <div class="corte" data-reveal style="--i:1"><h3>Tarantelo</h3><p>La pieza en triángulo entre la ventresca y la cola. Grasa media y fibra fina.</p></div>
+          <div class="corte" data-reveal style="--i:2"><h3>Lomo alto</h3><p>También llamado lomo negro. Recorre la espalda; magro y firme.</p></div>
+          <div class="corte" data-reveal style="--i:3"><h3>Lomo blanco</h3><p>El lomo bajo, encima de la barriga. Más tierno que el alto.</p></div>
+        </div>
+        <figure class="figura figura-ancha" data-reveal style="margin-top: 40px">
+          <div class="marco"><img src="assets/img/mercado-atun-1909.webp" width="1200" height="702" alt="Hombres cortando atunes a cuchillo sobre una mesa de madera en un mercado de pescado" loading="lazy" decoding="async"></div>
+          <figcaption>Despiece de atunes a cuchillo en el mercado de pescado de Madeira, 1909</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ LAS CUATRO ALMADRABAS DE CÁDIZ ============ -->
+    <!-- ============ THE FOUR ALMADRABAS OF CÁDIZ ============ -->
+    <div class="campo-tinta sobre-tinta">
+      <section class="bloque" aria-labelledby="t-cuatro">
+        <div class="bloque-titulo" data-reveal>
+          <h2 id="t-cuatro">Cuatro almadrabas</h2>
+          <p>En la costa de Cádiz se calan hoy cuatro, de norte a sur. Nosotros compramos en la de Zahara, la que vemos desde la fábrica.</p>
+        </div>
+        <div class="bloque-cuerpo">
+          <ol class="lista-almadrabas" data-reveal style="--i:1">
+            <li><b>Conil</b><span>La más al norte, frente a la costa de Conil de la Frontera.</span></li>
+            <li><b>Barbate</b><span>Su puerto es uno de los lugares de la provincia donde más se habla de atún.</span></li>
+            <li><b>Zahara de los Atunes</b><span>El pueblo lleva el atún en el nombre. Su castillo se levantó para guardar la almadraba.</span></li>
+            <li><b>Tarifa</b><span>La última antes del Estrecho, donde el Atlántico se encuentra con el Mediterráneo.</span></li>
+          </ol>
+          <figure class="figura figura-ancha" data-reveal style="--i:2; margin-top: 40px">
+            <div class="marco"><img src="assets/img/atun-dibujo-1914.webp" width="1300" height="553" alt="Dibujo de perfil de un atún rojo, con sus aletas y pínulas" loading="lazy" decoding="async"></div>
+            <figcaption>Atún rojo, Thunnus thynnus, en un dibujo científico de 1914</figcaption>
+          </figure>
+        </div>
+      </section>
+    </div>

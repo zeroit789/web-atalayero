@@ -1,0 +1,237 @@
+/*
+  paginas.css · Conservas Atalayero
+  Piezas comunes de la web completa (barra de navegación, menú móvil, botón de pausa, cupón con
+  etiquetas visibles) y composiciones de las páginas interiores: tienda, almadraba, sobre nosotros,
+  contacto, legales, créditos y 404. Usa los mismos tokens que estilos.css.
+  Shared pieces of the full site (navigation bar, mobile menu, pause button, coupon with visible
+  labels) and the inner pages' layouts: shop, almadraba, about, contact, legal, credits and 404.
+  Uses the same tokens as estilos.css.
+*/
+
+/* ===== Barra de navegación (igual en todas las páginas) ===== */
+/* ===== Navigation bar (same on every page) ===== */
+.barra {
+  position: relative; z-index: 20; background: var(--ink); color: var(--bg);
+  display: flex; align-items: center; gap: 24px; min-height: 68px; padding: 10px var(--lado);
+}
+.barra-marca { display: inline-flex; align-items: flex-end; gap: 8px; font-weight: var(--grueso); font-size: 1.5rem; line-height: 0.9; letter-spacing: -0.02em; text-decoration: none; }
+.barra-marca svg { width: 0.62em; height: 1em; fill: currentColor; }
+.barra-marca svg .hueco { fill: var(--ink); }
+.barra-enlaces { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+.barra-enlaces a, .pausa {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; font-weight: 500;
+  text-decoration-line: underline; text-decoration-color: transparent; text-underline-offset: 0.3em;
+  transition: text-decoration-color var(--t-hover) ease;
+}
+.barra-enlaces a:hover, .barra-enlaces a:focus-visible, .barra-enlaces a[aria-current="page"] { text-decoration-color: currentColor; }
+.barra-accion {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; background: var(--bg); color: var(--ink);
+  font-weight: 500; text-decoration: none; transition: background-color var(--t-hover) ease, transform var(--t-press) var(--ease-out);
+}
+.barra-accion:hover { background: #f1e9da; }
+.barra-accion:active { transform: scale(0.97); }
+.pausa { border: 0; background: transparent; color: inherit; cursor: pointer; font-size: var(--step-small); }
+.pausa:hover { text-decoration-color: currentColor; }
+.menu-boton {
+  display: none; margin-left: auto; min-height: 44px; padding: 0 16px; border: 0; cursor: pointer;
+  background: var(--bg); color: var(--ink); font-weight: 500;
+}
+
+/* Menú móvil: panel a pantalla completa bajo la barra / Mobile menu: full panel under the bar */
+@media (max-width: 960px) {
+  .menu-boton { display: inline-flex; align-items: center; }
+  .barra-enlaces {
+    display: none; position: absolute; left: 0; right: 0; top: 100%; margin: 0;
+    flex-direction: column; align-items: stretch; gap: 0; padding: 8px var(--m) 24px; background: var(--ink);
+  }
+  .barra.abierta .barra-enlaces { display: flex; }
+  .barra-enlaces a, .barra-enlaces .pausa { min-height: 52px; padding: 0 4px; font-size: var(--step-lead); justify-content: flex-start; }
+  .barra-enlaces .barra-accion { margin-top: 12px; justify-content: center; font-size: var(--step-body); }
+}
+
+/* ===== Pausa: todo lo que se mueve solo se detiene ===== */
+/* ===== Pause: everything that moves by itself stops ===== */
+.pausado .aro-giro, .pausado .foto-capa.activa img { animation-play-state: paused; }
+
+/* ===== Cupón con etiquetas visibles y errores ===== */
+/* ===== Coupon with visible labels and errors ===== */
+.cupon-der { gap: 6px; }
+.cupon label:not(.oculto) { font-size: var(--step-small); font-weight: 500; margin-top: 6px; }
+.cupon .campo-error { font-size: var(--step-small); font-weight: 500; background: var(--bg); color: var(--ink); padding: 4px 8px; align-self: flex-start; }
+.cupon input[aria-invalid="true"] { outline: 3px solid var(--bg); outline-offset: -3px; }
+.cupon-estado { font-weight: 500; }
+.cupon-estado:empty { display: none; }
+.cupon-correo { font-size: var(--step-small); }
+
+/* ===== Cabecera de las páginas interiores: la etiqueta desplegada ===== */
+/* ===== Inner page header: the unrolled label ===== */
+.cabecera {
+  background: var(--ink); padding: 12px var(--lado) var(--sec);
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 12px; align-items: stretch;
+}
+.cabecera-etiqueta { grid-column: 1 / 8; background: var(--bg); display: flex; flex-direction: column; }
+.cabecera-etiqueta .franja { height: 40px; }
+.cabecera-texto { padding: clamp(32px, 4vw, 64px); display: flex; flex-direction: column; gap: 24px; flex: 1; justify-content: center; }
+.cabecera h1 { font-size: clamp(2.5rem, 1rem + 4vw, 5.5rem); font-weight: var(--grueso); line-height: 0.92; letter-spacing: -0.03em; }
+.cabecera-entrada { font-size: var(--step-lead); line-height: 1.35; max-width: 34ch; }
+.cabecera-foto { grid-column: 8 / 13; margin: 0; display: flex; flex-direction: column; }
+.cabecera-foto .marco { flex: 1; min-height: 320px; }
+.cabecera-foto figcaption { background: var(--bg); color: var(--ink); padding: 8px 12px; margin: 0; }
+.cabecera-sola .cabecera-etiqueta { grid-column: 1 / -1; }
+.cabecera-sola .cabecera-texto { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
+
+/* Bloque de sección interior: título a la izquierda, contenido a la derecha */
+/* Inner section block: heading on the left, content on the right */
+.bloque { padding: var(--sec) var(--lado) 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; align-items: start; }
+.bloque:last-of-type { padding-bottom: var(--sec); }
+.bloque-titulo { grid-column: 1 / 5; }
+.bloque-titulo h2 { font-size: var(--step-head); font-weight: var(--grueso); line-height: 0.95; letter-spacing: -0.02em; }
+.bloque-titulo p { margin-top: 20px; max-width: 34ch; }
+.bloque-cuerpo { grid-column: 6 / 13; }
+.bloque-cuerpo > p { max-width: 62ch; }
+.bloque-cuerpo > p + p { margin-top: 16px; }
+.campo-tinta { background: var(--ink); color: var(--bg); padding-bottom: var(--sec); margin-top: var(--sec); }
+.campo-tinta + .bloque, .campo-tinta + footer { margin-top: 0; }
+/* Dentro de un campo de color el relleno inferior lo pone el campo / Inside a colour field the field sets the bottom padding */
+.campo-papel > .bloque, .campo-tinta > .bloque { padding-bottom: 0; }
+.campo-papel { background: var(--surface); padding-bottom: var(--sec); margin-top: var(--sec); }
+.figura .marco { aspect-ratio: 4 / 3; }
+.figura-ancha .marco { aspect-ratio: 16 / 9; }
+.par-fotos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 40px; }
+
+/* ===== TIENDA: estantes de latas ===== */
+/* ===== SHOP: shelves of tins ===== */
+.estante { display: grid; gap: 6px; }
+.producto {
+  display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 8px 20px; align-items: center;
+  background: var(--surface); padding: 16px 20px;
+}
+.campo-papel .producto { background: var(--bg); }
+.producto-tapa { width: 64px; height: 64px; border-radius: 50%; background: var(--ink); color: var(--bg); display: grid; place-items: center; font-weight: var(--grueso); font-size: var(--step-lead); }
+.producto h3 { font-size: var(--step-lead); font-weight: 500; line-height: 1.15; }
+.producto p { margin-top: 4px; max-width: 60ch; }
+.producto-lado { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; text-align: right; }
+.producto-precio { font-size: var(--step-lead); font-weight: var(--grueso); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.producto-peso { font-variant-numeric: tabular-nums; }
+.producto-pedir {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; background: var(--ink); color: var(--bg);
+  font-weight: 500; text-decoration: none; white-space: nowrap; transition: background-color var(--t-hover) ease, transform var(--t-press) var(--ease-out);
+}
+.producto-pedir:hover { background: var(--ink-tint); }
+.producto-pedir:active { transform: scale(0.97); }
+.nota-tienda { margin-top: 24px; max-width: 62ch; }
+
+/* ===== ALMADRABA: calendario, esquema y despiece ===== */
+/* ===== ALMADRABA: calendar, layout drawing and cuts ===== */
+.calendario { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.mes { background: var(--surface); padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.mes h3 { font-size: var(--step-lead); font-weight: var(--grueso); }
+.mes ol { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+.mes li { height: 28px; background: var(--bg); }
+.mes li.pesca { background: var(--ink); }
+.mes p { font-size: var(--step-body); }
+.leyenda { margin-top: 16px; display: flex; gap: 24px; flex-wrap: wrap; }
+.leyenda span { display: inline-flex; align-items: center; gap: 8px; }
+.leyenda i { width: 24px; height: 16px; background: var(--ink); display: inline-block; }
+.leyenda i.libre { background: var(--surface); }
+.esquema { background: var(--bg); padding: clamp(16px, 3vw, 40px); }
+.esquema svg { width: 100%; height: auto; }
+.esquema text { font-family: var(--fuente); font-size: 15px; font-weight: 500; fill: var(--ink); }
+.pasos-pesca { margin-top: 32px; display: grid; gap: 24px; }
+.pasos-pesca h3 { font-size: var(--step-lead); font-weight: var(--grueso); }
+.pasos-pesca p { margin-top: 6px; max-width: 60ch; }
+.cortes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin-top: 32px; }
+.corte { background: var(--surface); padding: 18px 20px; }
+.corte h3 { font-size: var(--step-lead); font-weight: var(--grueso); }
+.corte p { margin-top: 6px; }
+.pez-grande { background: var(--bg); padding: 16px; }
+.pez-grande svg { width: 100%; height: auto; }
+.pez-grande text { font-family: var(--fuente); font-size: 17px; font-weight: 500; fill: var(--ink); }
+.lista-almadrabas { display: grid; gap: 6px; }
+.lista-almadrabas li { background: var(--bg); color: var(--ink); padding: 16px 20px; display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 1fr); gap: 16px; }
+.lista-almadrabas b { font-size: var(--step-lead); }
+
+/* ===== SOBRE NOSOTROS: el libro de la casa ===== */
+/* ===== ABOUT: the house ledger ===== */
+.cronologia { display: grid; gap: 6px; }
+.cronologia li { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: 20px; background: var(--surface); padding: 18px 20px; }
+.cronologia b { font-size: var(--step-head); font-weight: 500; line-height: 1; font-variant-numeric: tabular-nums; }
+.cronologia p { max-width: 58ch; }
+.oficios { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+.oficio { background: var(--bg); color: var(--ink); padding: 22px; }
+.oficio h3 { font-size: var(--step-lead); font-weight: var(--grueso); }
+.oficio p { margin-top: 8px; }
+.valores { display: grid; gap: 28px; }
+.valores h3 { font-size: var(--step-lead); font-weight: var(--grueso); }
+.valores p { margin-top: 6px; max-width: 60ch; }
+
+/* ===== CONTACTO ===== */
+/* ===== CONTACT ===== */
+.datos-contacto { display: grid; gap: 28px; }
+.datos-contacto h3 { font-size: var(--step-lead); font-weight: var(--grueso); }
+.datos-contacto p, .datos-contacto dl { margin-top: 6px; }
+.horario { display: grid; grid-template-columns: 1fr; gap: 2px; font-variant-numeric: tabular-nums; }
+.horario dt { font-weight: 500; margin-top: 8px; }
+.horario dd { margin: 0; }
+.plano { background: var(--bg); }
+.plano svg { width: 100%; height: auto; }
+.plano text { font-family: var(--fuente); font-size: 16px; font-weight: 500; fill: var(--ink); }
+.contacto-cupon { padding-top: var(--sec); padding-bottom: var(--sec); }
+
+/* ===== LEGALES Y CRÉDITOS: el reverso de la etiqueta ===== */
+/* ===== LEGAL AND CREDITS: the back of the label ===== */
+.hoja { padding: var(--sec) var(--lado); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; }
+.hoja-indice { grid-column: 1 / 4; position: sticky; top: 24px; align-self: start; display: grid; gap: 8px; }
+.hoja-indice h2 { font-size: var(--step-body); font-weight: var(--grueso); }
+.hoja-indice a { min-height: 24px; }
+.hoja-texto { grid-column: 4 / 13; }
+.hoja-texto h2 { font-size: var(--step-lead); font-weight: var(--grueso); margin-top: 48px; scroll-margin-top: 24px; }
+.hoja-texto h2:first-child { margin-top: 0; }
+.hoja-texto p, .hoja-texto ul { margin-top: 14px; max-width: 66ch; }
+.hoja-texto ul { list-style: disc; padding-left: 1.2em; }
+.hoja-texto li + li { margin-top: 6px; }
+.tabla-creditos { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: var(--step-body); }
+.tabla-creditos th, .tabla-creditos td { text-align: left; vertical-align: top; padding: 12px 10px; border-bottom: 2px solid var(--surface); }
+.tabla-creditos th { font-weight: var(--grueso); }
+.tabla-creditos td a { overflow-wrap: anywhere; }
+
+/* ===== 404 ===== */
+.e404 { background: var(--ink); padding: 48px var(--lado) 64px; }
+.e404 .cabecera-etiqueta { max-width: 860px; margin: 0 auto; }
+.e404 .cabecera-entrada { font-size: var(--step-lead); }
+.e404 h1 { font-size: clamp(3rem, 1rem + 6vw, 7rem); font-weight: var(--grueso); line-height: 0.9; letter-spacing: -0.03em; }
+.e404-enlaces { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* ===== Pie: enlaces legales y aviso de demo ===== */
+/* ===== Footer: legal links and demo notice ===== */
+.pie-legal { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.pie-legal a { min-height: 24px; display: inline-flex; align-items: center; }
+.pie-demo { margin-top: 16px; font-weight: 500; }
+
+/* ===== Tableta y teléfono ===== */
+/* ===== Tablet and phone ===== */
+@media (max-width: 900px) {
+  .cabecera-etiqueta, .cabecera-foto { grid-column: 1 / -1; }
+  .cabecera-foto { margin-top: 12px; }
+  .cabecera-foto .marco { min-height: 0; aspect-ratio: 16 / 10; }
+  .bloque-titulo, .bloque-cuerpo { grid-column: 1 / -1; position: static; }
+  .bloque-cuerpo { margin-top: 32px; }
+  .hoja-indice { grid-column: 1 / -1; position: static; margin-bottom: 40px; }
+  .hoja-texto { grid-column: 1 / -1; }
+  .calendario { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .datos-contacto { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
+}
+@media (max-width: 520px) {
+  .datos-contacto { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  .producto { grid-template-columns: 48px minmax(0, 1fr); }
+  .producto-tapa { width: 48px; height: 48px; font-size: var(--step-body); }
+  .producto-lado { grid-column: 1 / -1; flex-direction: row; justify-content: space-between; align-items: center; text-align: left; }
+  .cortes, .oficios, .par-fotos { grid-template-columns: 1fr; }
+  .cronologia li { grid-template-columns: 1fr; gap: 8px; }
+  .lista-almadrabas li { grid-template-columns: 1fr; gap: 4px; }
+  .tabla-creditos thead { display: none; }
+  .tabla-creditos tr { display: grid; gap: 4px; padding: 12px 0; border-bottom: 2px solid var(--surface); }
+  .tabla-creditos td { border: 0; padding: 0; }
+}

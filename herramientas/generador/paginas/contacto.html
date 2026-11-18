@@ -1,0 +1,65 @@
+    <!-- ============ CABECERA: etiqueta a todo el ancho con los datos a la vista ============ -->
+    <!-- ============ HEADER: full-width label with the details in view ============ -->
+    <section class="cabecera cabecera-sola sobre-tinta" aria-labelledby="t-pagina">
+      <div class="cabecera-etiqueta" data-reveal>
+        <div class="franja" aria-hidden="true">{{FRANJA}}</div>
+        <div class="cabecera-texto">
+          <h1 id="t-pagina">Contacto</h1>
+          <p class="cabecera-entrada">Para pedir, rellena el cupón. Para cualquier otra cosa, escríbenos o pásate por la tienda de la fábrica entre abril y octubre.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DÓNDE Y CUÁNDO: datos y plano dibujado ============ -->
+    <!-- ============ WHERE AND WHEN: details and drawn map ============ -->
+    <section class="bloque" aria-labelledby="t-donde">
+      <div class="bloque-titulo" data-reveal>
+        <h2 id="t-donde">Dónde y cuándo</h2>
+        <div class="datos-contacto" style="margin-top: 32px">
+          <div><h3>La fábrica y la tienda</h3><p>Calle de los Corcheros, 5<br>11393 Zahara de los Atunes (Barbate), Cádiz</p></div>
+          <div><h3>Correo</h3><p><a href="mailto:hola@atalayero.example">hola@atalayero.example</a><br>Pedidos: <a href="mailto:pedidos@atalayero.example">pedidos@atalayero.example</a></p></div>
+          <div>
+            <h3>Horario de la tienda</h3>
+            <dl class="horario">
+              <dt>Abril a octubre</dt><dd>De lunes a sábado, de 10 a 14 h</dd>
+              <dt>Mayo y junio</dt><dd>También por la tarde, de 18 a 20 h</dd>
+              <dt>Noviembre a marzo</dt><dd>Cerrada; los pedidos siguen por cupón</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="bloque-cuerpo">
+        <figure class="plano" data-reveal style="--i:1">
+          <svg viewBox="0 0 800 560" role="img" aria-labelledby="plano-t plano-d">
+            <title id="plano-t">Plano dibujado de la costa entre Barbate y Tarifa</title>
+            <desc id="plano-d">La costa baja de noroeste a sureste. Barbate queda arriba a la izquierda, Zahara de los Atunes en el centro con la fábrica junto a la playa, el Cabo de Plata más al sur y Tarifa abajo a la derecha. El mar ocupa la parte de abajo y la izquierda.</desc>
+            <rect width="800" height="560" fill="#062b8a"/>
+            <path d="M120 0 L800 0 L800 470 C 720 450 690 420 640 400 C 590 380 560 330 520 300 C 470 265 430 250 380 235 C 320 215 280 170 240 120 C 200 70 160 40 120 0 Z" fill="#e6dbc7"/>
+            <circle cx="235" cy="112" r="10" fill="#062b8a"/><text x="256" y="104">Barbate</text>
+            <circle cx="392" cy="242" r="14" fill="#062b8a"/><rect x="386" y="214" width="12" height="18" fill="#062b8a"/>
+            <text x="418" y="232">Zahara de los Atunes</text><text x="418" y="256">La fábrica, junto a la playa</text>
+            <circle cx="525" cy="306" r="8" fill="#062b8a"/><text x="545" y="300">Cabo de Plata</text>
+            <circle cx="700" cy="432" r="10" fill="#062b8a"/><text x="640" y="400">Tarifa</text>
+            <rect x="300" y="300" width="80" height="34" fill="none" stroke="#e6dbc7" stroke-width="5" stroke-dasharray="10 8"/>
+            <text x="230" y="370" style="fill:#e6dbc7">Almadraba de Zahara</text>
+            <text x="40" y="520" style="fill:#e6dbc7">Océano Atlántico · Dibujo sin escala</text>
+          </svg>
+        </figure>
+        <div class="par-fotos">
+          <figure class="figura" data-reveal>
+            <div class="marco"><img src="assets/img/heroe-tejados-zahara.webp" width="1400" height="1400" alt="Tejados del castillo de Zahara con la playa y el mar al fondo" loading="lazy" decoding="async"></div>
+            <figcaption>La playa de Zahara desde el castillo</figcaption>
+          </figure>
+          <figure class="figura" data-reveal style="--i:1">
+            <div class="marco"><img src="assets/img/heroe-castillo-zahara.webp" width="1400" height="1750" alt="Arco de piedra en ruinas del Castillo de las Almadrabas, en Zahara de los Atunes" loading="lazy" decoding="async"></div>
+            <figcaption>El Castillo de las Almadrabas, a dos calles de la tienda</figcaption>
+          </figure>
+        </div>
+        <figure class="figura figura-ancha" data-reveal style="margin-top: 16px">
+          <div class="marco"><img src="assets/img/puerto-barbate.webp" width="1400" height="1050" alt="Puerto de Barbate con barcos amarrados y el pueblo blanco al fondo" loading="lazy" decoding="async"></div>
+          <figcaption>Si vienes desde el norte, pasarás por el puerto de Barbate</figcaption>
+        </figure>
+      </div>
+    </section>
+
+{{CUPON}}

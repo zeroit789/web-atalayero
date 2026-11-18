@@ -1,0 +1,96 @@
+    <!-- ============ CABECERA: la etiqueta desplegada con el azulejo ============ -->
+    <!-- ============ HEADER: the unrolled label with the tile panel ============ -->
+    <section class="cabecera sobre-tinta" aria-labelledby="t-pagina">
+      <div class="cabecera-etiqueta" data-reveal>
+        <div class="franja" aria-hidden="true">{{FRANJA}}</div>
+        <div class="cabecera-texto">
+          <h1 id="t-pagina">La tienda</h1>
+          <p class="cabecera-entrada">Todas las latas de la última levantá, con su peso y su precio. Se piden con el cupón y se pagan por transferencia o al recibirlas.</p>
+        </div>
+      </div>
+      <figure class="cabecera-foto" data-reveal style="--i:1">
+        <div class="marco"><img src="assets/img/azulejo-almadraba.webp" width="1016" height="762" alt="Panel de azulejos pintados con una levantá: pescadores en la barca subiendo atunes del copo" fetchpriority="high"></div>
+        <figcaption>Una levantá pintada en azulejo sobre una fachada encalada</figcaption>
+      </figure>
+    </section>
+
+    <!-- ============ ESTANTE 1: latas de 120 g ============ -->
+    <!-- ============ SHELF 1: 120 g tins ============ -->
+    <section class="bloque" aria-labelledby="t-latas">
+      <div class="bloque-titulo" data-reveal>
+        <h2 id="t-latas">Latas de 120 g</h2>
+        <p>Una pieza por lata, en aceite de oliva virgen extra. El nombre de la pieza va impreso en la tapa.</p>
+      </div>
+      <div class="bloque-cuerpo">
+        <div class="estante">
+{{PRODUCTOS:latas}}
+        </div>
+        <p class="nota-tienda">¿No sabes cuál elegir? En la portada puedes ver dónde está cada pieza en el atún y <a href="index.html#despiece">montar tu caja de seis</a>.</p>
+      </div>
+    </section>
+
+    <!-- ============ ESTANTE 2: cajas de seis (en campo de papel) ============ -->
+    <!-- ============ SHELF 2: boxes of six (on a paper field) ============ -->
+    <div class="campo-papel">
+      <section class="bloque" aria-labelledby="t-cajas">
+        <div class="bloque-titulo" data-reveal>
+          <h2 id="t-cajas">Cajas de seis</h2>
+          <p>Cajas de cartón con la torre impresa. Desde una caja, el envío a la península no se cobra.</p>
+        </div>
+        <div class="bloque-cuerpo">
+          <div class="estante">
+{{PRODUCTOS:cajas}}
+          </div>
+          <div class="par-fotos">
+            <figure class="figura" data-reveal>
+              <div class="marco"><img src="assets/img/puerto-barbate.webp" width="1400" height="1050" alt="Puerto de Barbate con barcos amarrados y el pueblo blanco al fondo" loading="lazy" decoding="async"></div>
+              <figcaption>El puerto de Barbate, a veinte minutos de la fábrica</figcaption>
+            </figure>
+            <figure class="figura" data-reveal style="--i:1">
+              <div class="marco"><img src="assets/img/heroe-anclas-almadraba.webp" width="1400" height="1280" alt="Fila de anclas oxidadas de la almadraba, apoyadas en la hierba" loading="lazy" decoding="async"></div>
+              <figcaption>Anclas de la almadraba esperando la primavera</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ ESTANTE 3: latas grandes, salazones y untables ============ -->
+    <!-- ============ SHELF 3: large tins, cured fish and spreads ============ -->
+    <section class="bloque" aria-labelledby="t-grandes">
+      <div class="bloque-titulo" data-reveal>
+        <h2 id="t-grandes">Para cocina</h2>
+        <p>Latas grandes para casas con mucha gente, la mojama y las huevas que se curan con sal en la misma nave, y dos untables.</p>
+      </div>
+      <div class="bloque-cuerpo">
+        <div class="estante">
+{{PRODUCTOS:grandes}}
+{{PRODUCTOS:salazones}}
+{{PRODUCTOS:untables}}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ENVÍOS Y PAGO ============ -->
+    <!-- ============ SHIPPING AND PAYMENT ============ -->
+    <div class="campo-tinta sobre-tinta">
+      <section class="bloque" aria-labelledby="t-envios">
+        <div class="bloque-titulo" data-reveal>
+          <h2 id="t-envios">Envíos y pago</h2>
+          <p>Sin pasarela de pago: nos llega tu cupón, te escribimos y lo cerramos por correo.</p>
+        </div>
+        <div class="bloque-cuerpo">
+          <ul class="lista-almadrabas" data-reveal style="--i:1">
+            <li><b>Península</b><span>Gratis desde una caja de seis. Con latas sueltas, 5,90 €. Llega en 48 a 72 horas.</span></li>
+            <li><b>Baleares</b><span>8,50 € por pedido. Llega en 3 a 5 días.</span></li>
+            <li><b>Canarias, Ceuta y Melilla</b><span>Te decimos el precio antes de cerrar el pedido: depende del peso y de la aduana.</span></li>
+            <li><b>Pago</b><span>Por transferencia cuando te confirmamos el total, o al recibir la caja con un recargo de 2 €.</span></li>
+            <li><b>Temporada</b><span>Ahora vendemos las latas de la levantá de mayo de 2025. Las de 2026 reposan en la bodega hasta abril de 2027.</span></li>
+          </ul>
+          <figure class="figura figura-ancha" data-reveal style="--i:2; margin-top: 40px">
+            <div class="marco"><img src="assets/img/atunes-1949.webp" width="1200" height="881" alt="Un pescador entre un montón de atunes recién descargados en una nave" loading="lazy" decoding="async"></div>
+            <figcaption>Atunes recién descargados en una nave de pescado de Australia, 1949</figcaption>
+          </figure>
+        </div>
+      </section>
+    </div>

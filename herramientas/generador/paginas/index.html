@@ -1,0 +1,216 @@
+  <!-- ============ HÉROE: la etiqueta a rayas junto a la foto del muelle ============ -->
+  <!-- ============ HERO: the striped label beside the harbour photograph ============ -->
+  <section class="heroe sobre-tinta" aria-labelledby="t-heroe">
+    <div class="heroe-foto" data-crossfade>
+      <figure class="foto-capa activa">
+        <img src="assets/img/heroe-barcos-barbate.webp" width="1400" height="1750" alt="Barcas de la almadraba amarradas en el muelle de Barbate, con un noray oxidado en primer plano" fetchpriority="high">
+        <figcaption>Barcas de la almadraba en el muelle de Barbate</figcaption>
+      </figure>
+      <figure class="foto-capa">
+        <img src="assets/img/heroe-anclas-almadraba.webp" width="1400" height="1280" alt="Fila de anclas oxidadas de la almadraba, apoyadas en la hierba" loading="lazy" decoding="async">
+        <figcaption>Anclas que sujetan la almadraba al fondo cada primavera</figcaption>
+      </figure>
+      <figure class="foto-capa">
+        <img src="assets/img/heroe-castillo-zahara.webp" width="1400" height="1750" alt="Arco de piedra en ruinas del Castillo de las Almadrabas, en Zahara de los Atunes" loading="lazy" decoding="async">
+        <figcaption>Castillo de las Almadrabas, Zahara de los Atunes</figcaption>
+      </figure>
+      <figure class="foto-capa">
+        <img src="assets/img/heroe-tejados-zahara.webp" width="1400" height="1400" alt="Tejados del castillo de Zahara con la playa y el mar al fondo" loading="lazy" decoding="async">
+        <figcaption>Desde los tejados del castillo, la playa hasta el Cabo de Plata</figcaption>
+      </figure>
+    </div>
+
+    <div class="etiqueta">
+      <!-- Franja de la etiqueta: barras de tinta y papel / Label stripe: ink and paper bars -->
+      <div class="franja" aria-hidden="true">{{FRANJA}}</div>
+      <div class="etiqueta-cuerpo">
+        <p class="marca" aria-label="Conservas Atalayero">
+          <svg class="marca-torre" viewBox="0 0 40 64" aria-hidden="true" focusable="false">
+            <rect x="12" y="0" width="16" height="8"/><rect x="4" y="12" width="32" height="10"/>
+            <rect x="8" y="26" width="24" height="38"/><rect x="16" y="40" width="8" height="12" class="hueco"/>
+          </svg>
+          <span>Atalayero</span>
+        </p>
+        <h1 id="t-heroe"><span class="nl">Atún de almadraba,</span> <span class="nl">en lata de Zahara</span></h1>
+        <p class="heroe-frase">Atún rojo pescado en mayo frente a Zahara de los Atunes, cocido y enlatado a mano en aceite de oliva. Una sola temporada al año.</p>
+        <a class="boton" href="#despiece">
+          <span class="boton-texto">Montar mi caja</span>
+          <span class="boton-raya" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        </a>
+        <nav class="heroe-enlaces" aria-label="Secciones">
+          <a href="#despiece">El despiece</a>
+          <a href="#tarifa">La tarifa</a>
+          <a href="#cupon">El cupón</a>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+    <!-- ============ INTRO: título, nota y fila de datos ============ -->
+    <!-- ============ INTRO: title, note and facts row ============ -->
+    <section class="intro" aria-labelledby="t-intro">
+      <div class="intro-fila">
+        <h2 id="t-intro" data-reveal>Una sola temporada</h2>
+        <p class="intro-nota" data-reveal style="--i:1">El atún rojo cruza el Estrecho en mayo camino del Mediterráneo. Lo esperamos con la almadraba calada desde abril y no enlatamos nada fuera de esas seis semanas.</p>
+      </div>
+      <dl class="datos">
+        <div data-reveal style="--i:0"><dt>1934</dt><dd>Antonio, el atalayero, baja de la torre y abre la fábrica</dd></div>
+        <div data-reveal style="--i:1"><dt>6 semanas</dt><dd>De primeros de mayo a mediados de junio</dd></div>
+        <div data-reveal style="--i:2"><dt>48 horas</dt><dd>Del copo a la lata, con el atún entero</dd></div>
+        <div data-reveal style="--i:3"><dt>11 meses</dt><dd>En aceite antes de salir a la venta</dd></div>
+      </dl>
+      <div class="intro-bajo">
+        <p class="intro-torre" data-reveal>El nombre viene del oficio del bisabuelo: era el atalayero, el vigía que desde la torre de la playa avisaba a las barcas cuando entraba el atún. Hoy esa torre es el dibujo de cada etiqueta.</p>
+        <figure class="intro-foto" data-reveal style="--i:1">
+          <div class="marco"><img src="assets/img/azulejo-almadraba.webp" width="1016" height="762" alt="Panel de azulejos pintados con una levantá: pescadores en la barca subiendo atunes del copo" decoding="async"></div>
+          <figcaption>Una levantá pintada en azulejo sobre una fachada encalada</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ DESPIECE (la cosa viva): elige pieza y monta la caja ============ -->
+    <!-- ============ CUTS (the live thing): pick a cut and build the box ============ -->
+    <section class="despiece" id="despiece" aria-labelledby="t-despiece">
+      <div class="plato sobre-tinta" data-reveal>
+        <!-- La tapa de la lata vista desde arriba, con el atún litografiado -->
+        <!-- The tin lid seen from above, with the lithographed tuna -->
+        <svg class="tapa" viewBox="0 0 600 600" role="img" aria-labelledby="tapa-titulo">
+          <title id="tapa-titulo">Tapa de lata con el dibujo de un atún dividido en piezas; la pieza elegida aparece rayada</title>
+          <defs>
+            <pattern id="raya" width="16" height="16" patternUnits="userSpaceOnUse" >
+              <rect width="16" height="16" fill="#e6dbc7"/><rect width="8" height="16" fill="#062b8a"/>
+            </pattern>
+            <clipPath id="cuerpo-clip">
+              <path d="M28 125 C70 78 150 56 240 54 C330 52 410 74 470 108 L516 116 L516 132 L470 138 C410 176 320 196 240 194 C150 192 70 170 28 125 Z"/>
+            </clipPath>
+            <path id="aro-texto" d="M300 300 m-232 0 a232 232 0 1 1 464 0 a232 232 0 1 1 -464 0"/>
+          </defs>
+          <circle cx="300" cy="300" r="290" class="tapa-fondo"/>
+          <circle cx="300" cy="300" r="258" class="tapa-aro"/>
+          <g class="aro-giro">
+            <text class="tapa-letra"><textPath href="#aro-texto">Conservas Atalayero · Zahara de los Atunes · Atún rojo de almadraba en aceite de oliva · </textPath></text>
+          </g>
+          <!-- Anilla de apertura / Ring pull -->
+          <rect x="266" y="118" width="68" height="30" rx="15" class="tapa-anilla"/>
+          <g transform="translate(108 212) scale(0.64)">
+            <!-- Aletas, cola y cabeza en tinta lisa / Fins, tail and head in plain ink -->
+            <path class="pez" d="M200 58 L232 20 L268 56 Z M332 62 L352 30 L368 66 Z M336 186 L354 214 L368 180 Z M512 116 L584 40 L556 124 L584 208 L512 132 Z"/>
+            <path class="pez" d="M392 80 l10 -10 l2 14 Z M418 88 l10 -10 l2 14 Z M444 96 l10 -10 l2 14 Z M470 104 l10 -10 l2 14 Z M394 168 l10 12 l2 -14 Z M420 160 l10 12 l2 -14 Z M446 152 l10 12 l2 -14 Z"/>
+            <g clip-path="url(#cuerpo-clip)">
+              <path class="pez" d="M0 0 H124 Q100 125 124 250 H0 Z"/>
+              <path class="pez" d="M455 0 H600 V250 H455 Z"/>
+              <path class="pieza" data-pieza="morrillo" d="M124 0 H222 V106 H110 Q104 50 124 0 Z"/>
+              <path class="pieza" data-pieza="lomo-alto" d="M222 0 H455 V118 H222 Z"/>
+              <path class="pieza" data-pieza="lomo-blanco" d="M110 106 H222 V118 H455 V136 L300 152 H112 Q108 128 110 106 Z"/>
+              <path class="pieza" data-pieza="ventresca" d="M112 152 H300 V250 H124 Q106 200 112 152 Z"/>
+              <path class="pieza" data-pieza="tarantelo" d="M300 152 L455 136 V250 H300 Z"/>
+            </g>
+            <!-- Ojo, agalla y aleta pectoral en papel / Eye, gill and pectoral fin in paper -->
+            <circle cx="68" cy="112" r="9" class="papel"/><circle cx="70" cy="112" r="4" class="pez"/>
+            <path class="papel" d="M140 118 L228 104 L150 134 Z"/>
+          </g>
+          <text x="300" y="448" class="tapa-pieza" text-anchor="middle" data-pieza-nombre>Ventresca</text>
+        </svg>
+      </div>
+
+      <div class="despiece-texto">
+        <div class="pestanas" role="group" aria-label="Piezas del atún">
+          <button type="button" class="pestana" data-pieza="ventresca" aria-pressed="true">Ventresca</button>
+          <button type="button" class="pestana" data-pieza="tarantelo" aria-pressed="false">Tarantelo</button>
+          <button type="button" class="pestana" data-pieza="morrillo" aria-pressed="false">Morrillo</button>
+          <button type="button" class="pestana" data-pieza="lomo-alto" aria-pressed="false">Lomo alto</button>
+          <button type="button" class="pestana" data-pieza="lomo-blanco" aria-pressed="false">Lomo blanco</button>
+        </div>
+
+        <div class="despiece-medio">
+          <h2 id="t-despiece" data-reveal>Cada pieza, su lata</h2>
+          <div class="ficha" aria-live="polite">
+            <p class="ficha-precio" data-ficha-precio>Ventresca · lata de 120 g · 14,90 €</p>
+            <p class="ficha-texto" data-ficha-texto>La barriga del atún, la parte más grasa. Se abre en láminas que se deshacen; pan, tomate y nada más.</p>
+          </div>
+        </div>
+
+        <div class="caja">
+          <p class="caja-titulo" aria-live="polite" data-caja-resumen>Tu caja: 0 de 6 latas</p>
+          <ol class="caja-huecos" data-caja-huecos aria-hidden="true">
+            <li></li><li></li><li></li><li></li><li></li><li></li>
+          </ol>
+          <div class="acciones">
+            <button type="button" class="celda celda-tinta" data-caja-anadir>Añadir a la caja</button>
+            <button type="button" class="celda celda-tono" data-caja-quitar>Quitar la última</button>
+          </div>
+          <a class="caja-pedir" href="#cupon">Pedir esta caja con el cupón</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CÓMO SE HACE: el albarán con los pasos ============ -->
+    <!-- ============ HOW IT IS MADE: the slip with the steps ============ -->
+    <section class="proceso sobre-tinta" aria-labelledby="t-proceso">
+      <div class="proceso-texto">
+        <h2 id="t-proceso" data-reveal>Del copo a la lata</h2>
+        <p data-reveal style="--i:1">Lo que pasa entre el alba en que se levanta la red y el día en que la lata llega a tu casa. Lo hacemos igual desde 1934; solo ha cambiado la cocina.</p>
+        <figure class="proceso-foto" data-reveal style="--i:2">
+          <div class="marco"><img src="assets/img/mercado-atun-1909.webp" width="1200" height="702" alt="Hombres cortando atunes a cuchillo sobre una mesa de madera en un mercado de pescado" decoding="async"></div>
+          <figcaption>Despiece de atunes a cuchillo en el mercado de pescado de Madeira, 1909</figcaption>
+        </figure>
+      </div>
+
+      <div class="albaran" data-reveal style="--i:1">
+        <h3>En abril</h3>
+        <ul>
+          <li><span>Calar las redes frente a la playa</span><b>3 semanas</b></li>
+          <li><span>Revisar el copo con buzos</span><b>2 días</b></li>
+        </ul>
+        <h3>En mayo, al alba</h3>
+        <ul>
+          <li><span>Levantá: las barcas cierran el copo</span><b>2 h</b></li>
+          <li><span>Atunes a tierra, enteros y en hielo</span><b>40 min</b></li>
+        </ul>
+        <h3>Esa misma tarde</h3>
+        <ul>
+          <li><span>Ronqueo y despiece a cuchillo</span><b>3 h</b></li>
+          <li><span>Cocción en agua de mar con sal</span><b>90 min</b></li>
+          <li><span>Oreo de las piezas en rejilla</span><b>1 noche</b></li>
+        </ul>
+        <h3>Al día siguiente</h3>
+        <ul>
+          <li><span>Limpieza a mano, sin piel ni espinas</span><b>6 h</b></li>
+          <li><span>Enlatado en aceite de oliva virgen extra</span><b>1 día</b></li>
+          <li><span>Cierre y esterilizado de la lata</span><b>2 h</b></li>
+        </ul>
+        <h3>Hasta la primavera</h3>
+        <ul>
+          <li><span>Reposo de las latas en la bodega</span><b>11 meses</b></li>
+        </ul>
+        <p class="albaran-total"><span>Una lata lista para abrir</span><b>1 año</b></p>
+      </div>
+    </section>
+
+    <!-- ============ TARIFA: palabra gigante y barras desplegables ============ -->
+    <!-- ============ PRICE LIST: giant word and folding bars ============ -->
+    <section class="tarifa" id="tarifa" aria-labelledby="t-tarifa">
+      <div class="tarifa-columna">
+        <h2 id="t-tarifa" class="palabra" data-reveal>Tarifa</h2>
+        <div class="barras">
+{{TARIFA}}
+        </div>
+      </div>
+
+      <div class="tarifa-laminas">
+        <figure class="lamina" data-reveal style="--i:1">
+          <div class="marco">
+            <video autoplay muted loop playsinline preload="metadata" poster="assets/video/atunes-red-poster.webp" width="640" height="480" aria-hidden="true" data-video>
+              <source src="assets/video/atunes-red.webm" type="video/webm">
+            </video>
+          </div>
+          <figcaption>Atunes rojos dentro de una red en el Mediterráneo, durante un estudio de marcado</figcaption>
+        </figure>
+        <figure class="lamina" data-reveal style="--i:2">
+          <div class="marco"><img src="assets/img/atunes-1949.webp" width="1200" height="881" alt="Un pescador entre un montón de atunes recién descargados en una nave" decoding="async"></div>
+          <figcaption>Atunes recién descargados en una nave de pescado de Australia, 1949</figcaption>
+        </figure>
+      </div>
+    </section>
+
+{{CUPON}}

@@ -1,0 +1,5 @@
+# Web de demostración de una marca ficticia / Demo site of a fictional brand
+User-agent: *
+Allow: /
+
+Sitemap: https://atalayero.danimefle.com/sitemap.xml
