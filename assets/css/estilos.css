@@ -393,8 +393,12 @@ figcaption { font-size: var(--step-small); margin-top: 10px; }
 /* =====================================================================
    CAPA DE MOVIMIENTO
    MOTION LAYER
-   Todo lo oculto vive bajo html.js y sin reducción de movimiento.
-   Everything hidden lives under html.js and no-reduced-motion only.
+   La llegada del héroe vive bajo html.js (sus animaciones acaban siempre visibles). Lo que se oculta
+   hasta entrar en pantalla vive bajo html.con-entradas, que pone principal.js cuando ya vigila.
+   Todo, solo sin reducción de movimiento.
+   The hero arrival lives under html.js (its animations always end visible). Whatever stays hidden
+   until it enters the screen lives under html.con-entradas, set by principal.js once it is watching.
+   All of it, only without reduced motion.
    ===================================================================== */
 @keyframes ficha-entra { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 @keyframes hueco-entra { from { transform: scale(0.4); } to { transform: none; } }
@@ -417,19 +421,19 @@ figcaption { font-size: var(--step-small); margin-top: 10px; }
   .js .etiqueta-cuerpo > .boton { animation-delay: 400ms; }
   .js .etiqueta-cuerpo > .heroe-enlaces { animation-delay: 480ms; }
   /* Entradas escalonadas por sección / Staggered section entrances */
-  .js [data-reveal] {
+  .con-entradas [data-reveal] {
     opacity: 0; transform: translateY(24px);
     transition: opacity var(--t-reveal) var(--ease-expo), transform var(--t-reveal) var(--ease-expo);
     transition-delay: calc(var(--i, 0) * 80ms);
   }
-  .js [data-reveal].is-in { opacity: 1; transform: none; }
+  .con-entradas [data-reveal].is-in { opacity: 1; transform: none; }
   /* La tapa: el texto del aro gira despacio y la pieza elegida late al cambiar */
   /* The lid: the ring text turns slowly and the chosen cut pulses on change */
   .pieza.activa { animation: pieza-late 480ms var(--ease-out); }
   /* El pie: los bloques suben desde la línea base / Footer: blocks rise from the baseline */
-  .js .bloques[data-reveal] { opacity: 1; transform: none; }
-  .js .bloques span { transform: translateY(102%); transition: transform 1s var(--ease-expo); transition-delay: calc(var(--i, 0) * 70ms); }
-  .js .bloques.is-in span { transform: none; }
+  .con-entradas .bloques[data-reveal] { opacity: 1; transform: none; }
+  .con-entradas .bloques span { transform: translateY(102%); transition: transform 1s var(--ease-expo); transition-delay: calc(var(--i, 0) * 70ms); }
+  .con-entradas .bloques.is-in span { transform: none; }
   /* La carta del Estrecho se acerca con el scroll / The Strait chart closes in with the scroll */
   @supports (animation-timeline: view()) {
     .carta { animation: carta-acerca linear both; animation-timeline: view(); animation-range: entry 0% exit 100%; }

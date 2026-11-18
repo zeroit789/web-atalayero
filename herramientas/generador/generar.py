@@ -265,7 +265,9 @@ def cupon():
           <!-- Desactivado hasta que el script instala su manejador: sin JS no se envía nada -->
           <!-- Disabled until the script installs its handler: without JS nothing is sent -->
           <button type="submit" class="cupon-enviar" disabled data-cupon-enviar>Enviar el cupón</button>
-          <noscript><p class="cupon-noscript">El cupón necesita JavaScript para abrir tu correo. Sin él, escribe a <a href="mailto:{CORREO_PEDIDOS}">{CORREO_PEDIDOS}</a>.</p></noscript>
+          <!-- Aviso visible por defecto: el script lo oculta al activar el botón (también sale si el script falla) -->
+          <!-- Note visible by default: the script hides it when enabling the button (it also shows if the script fails) -->
+          <p class="cupon-noscript" data-cupon-aviso>El cupón necesita JavaScript para abrir tu correo. Sin él, escribe a <a href="mailto:{CORREO_PEDIDOS}">{CORREO_PEDIDOS}</a>.</p>
           <p class="cupon-estado" role="status" aria-live="polite" data-cupon-estado></p>
         </div>
       </form>

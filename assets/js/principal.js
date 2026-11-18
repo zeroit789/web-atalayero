@@ -58,9 +58,29 @@
       }
     });
     panel.addEventListener('click', function (e) { if (e.target.closest('a')) cerrar(false); });
-    // Al pasar a escritorio con el menú abierto, se cierra y se quita el atrapado de foco
-    // Switching to desktop with the menu open closes it and removes the focus trap
-    movil.addEventListener('change', function (m) { if (!m.matches && barra.classList.contains('abierta')) cerrar(false); });
+    // Al cruzar el punto de corte (la misma media query que el CSS), el menú abierto se cierra y el
+    // foco nunca se queda en algo que deja de verse: en escritorio el botón se oculta y el foco pasa al
+    // primer enlace; en móvil los enlaces se pliegan y el foco pasa al botón.
+    // When crossing the breakpoint (the same media query as the CSS), an open menu closes and focus
+    // never stays on something that disappears: on desktop the button hides and focus moves to the
+    // first link; on mobile the links fold and focus moves to the button.
+    // El navegador puede quitar el foco de lo que se oculta antes de avisar del cambio (queda en body):
+    // se recuerda el último elemento enfocado; un clic con el puntero lo olvida
+    // The browser may drop focus from what hides before reporting the change (it lands on body): the
+    // last focused element is remembered; a pointer click forgets it
+    var ultimoFoco = null;
+    document.addEventListener('focusin', function (e) { ultimoFoco = e.target; });
+    document.addEventListener('pointerdown', function () { ultimoFoco = null; });
+    movil.addEventListener('change', function (m) {
+      var activo = document.activeElement;
+      if (!activo || activo === document.body) activo = ultimoFoco;
+      if (!activo) return;
+      var enMenu = activo === boton || panel.contains(activo);
+      if (barra.classList.contains('abierta')) cerrar(false);
+      if (!enMenu || activo.getClientRects().length) return;
+      if (m.matches) boton.focus();
+      else { var primero = panel.querySelector('a'); if (primero) primero.focus(); }
+    });
   }
 
   /* ===== 2. Movimiento continuo y su pausa (WCAG 2.2.2) =====
@@ -127,7 +147,19 @@
         if (e.isIntersecting) { e.target.classList.add('is-in'); vigia.unobserve(e.target); }
       });
     }, { rootMargin: '0px', threshold: 0.01 });
-    piezas.forEach(function (p) { vigia.observe(p); });
+    // Si la página ya se pintó con contenido (el script llegó tarde), lo que está en pantalla se queda
+    // visible y no se vigila, para que no parpadee; si aún no se pintó, todo entra animado como siempre
+    // If the page already painted content (the script arrived late), what is on screen stays visible
+    // and is not watched, so it does not flicker; if nothing was painted yet, everything animates in as usual
+    var pintada = !performance.getEntriesByName || performance.getEntriesByName('first-contentful-paint').length > 0;
+    piezas.forEach(function (p) {
+      var caja = p.getBoundingClientRect();
+      if (pintada && caja.top < window.innerHeight && caja.bottom > 0) p.classList.add('is-in');
+      else vigia.observe(p);
+    });
+    // Solo ahora, con el vigía puesto, el CSS puede ocultar lo que aún no ha entrado
+    // Only now, with the watcher in place, may the CSS hide what has not entered yet
+    document.documentElement.classList.add('con-entradas');
   }
 
   /* ===== 5. El despiece y la caja de seis latas (la cosa viva) =====
@@ -247,6 +279,8 @@
     // Comprueba un campo y muestra u oculta su error / Checks a field and shows or hides its error
     function revisar(input) {
       var ok = input.checkValidity();
+      // Un campo obligatorio con solo espacios cuenta como vacío / A required field with only spaces counts as empty
+      if (input.required && !input.value.trim()) ok = false;
       if (input.id === 'c-cp' && input.value) ok = /^\d{5}$/.test(input.value.trim());
       var error = document.getElementById('e-' + input.id);
       input.setAttribute('aria-invalid', ok ? 'false' : 'true');
@@ -272,8 +306,11 @@
       if (estado) estado.textContent = 'Se abre tu programa de correo con el pedido escrito. Esta web es una demostración: nadie lo recibirá.';
       window.location.href = 'mailto:' + DATOS.correo + '?subject=' + encodeURIComponent('Pedido · Conservas Atalayero') + '&body=' + encodeURIComponent(cuerpo);
     });
-    // Manejador puesto: ya se puede enviar / Handler in place: sending is now possible
+    // Manejador puesto: ya se puede enviar y sobra el aviso de «sin JavaScript»
+    // Handler in place: sending is now possible and the "no JavaScript" note is no longer needed
     if (enviar) enviar.disabled = false;
+    var aviso = form.querySelector('[data-cupon-aviso]');
+    if (aviso) aviso.hidden = true;
   }
 
   // Arranque / Start

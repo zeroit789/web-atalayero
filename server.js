@@ -25,7 +25,7 @@ const TIPOS = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
   '.json': 'application/json', '.webmanifest': 'application/manifest+json', '.svg': 'image/svg+xml',
   '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.webm': 'video/webm',
-  '.woff2': 'font/woff2', '.xml': 'application/xml', '.txt': 'text/plain; charset=utf-8'
+  '.woff2': 'font/woff2', '.xml': 'application/xml', '.txt': 'text/plain; charset=utf-8', '.ico': 'image/x-icon'
 };
 
 // Lee las cabeceras del bloque "/*" de _headers / Reads the headers of the "/*" block in _headers
@@ -88,14 +88,23 @@ async function atender(pet, res) {
   // Una URL mal codificada devuelve 400 en vez de tumbar el servidor / A malformed URL returns 400 instead of crashing
   try { ruta = decodeURIComponent(url.pathname); } catch { return texto(res, 400, 'Petición incorrecta'); }
   if (ruta.includes('\0')) return texto(res, 400, 'Petición incorrecta');
-  // Igual que Cloudflare Pages: /x.html redirige a /x / Like Cloudflare Pages: /x.html redirects to /x
-  if (ruta.endsWith('.html')) {
-    const destino = ruta === '/index.html' ? '/' : url.pathname.slice(0, -5);
+  // Igual que Cloudflare Pages: /x.html redirige a /x, solo si la página existe. El destino sale de la
+  // ruta decodificada sin la extensión, vuelta a codificar por partes y con una sola barra inicial,
+  // así que nunca apunta a otro origen (//otro.sitio o /\otro.sitio).
+  // Like Cloudflare Pages: /x.html redirects to /x, only if the page exists. The target comes from the
+  // decoded route without the extension, re-encoded segment by segment and with a single leading
+  // slash, so it never points to another origin (//other.site or /\other.site).
+  if (ruta.endsWith('.html') && await resolver(ruta)) {
+    const sinExtension = ruta === '/index.html' ? '/' : ruta.slice(0, -5);
+    const destino = '/' + sinExtension.split('/').map(encodeURIComponent).join('/').replace(/^\/+/, '');
     res.writeHead(308, { Location: destino + url.search });
     return res.end();
   }
+  // La página 404 pasa por la misma comprobación de ruta real; si falla, 404 de texto
+  // The 404 page goes through the same real-path check; if it fails, a plain-text 404
   const fichero = await resolver(ruta);
-  const final = fichero || path.join(RAIZ, '404.html');
+  const final = fichero || await resolver('/404.html');
+  if (!final) return texto(res, 404, 'No encontrado');
   const cuerpo = await readFile(final);
   res.writeHead(fichero ? 200 : 404, { 'Content-Type': TIPOS[path.extname(final)] || 'application/octet-stream', ...CABECERAS });
   res.end(cuerpo);
