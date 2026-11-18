@@ -66,7 +66,7 @@ no hay HTTPS. También se puede abrir `index.html` directamente en el navegador.
 
 ## Créditos y licencias
 
-- Código: licencia MIT (ver `LICENSE`).
+- Código: licencia MIT (ver `LICENSE`). Los avisos sobre lo que no cubre (imágenes, tipografía y marca) están en [`NOTICE.md`](NOTICE.md).
 - Fotografías, carta náutica y vídeo: Wikimedia Commons, con licencias CC BY-SA 4.0, CC0, CC BY 2.5 y dominio público.
   Detalle en `CREDITOS.md` y en `creditos.html`.
 - Tipografía: Hanken Grotesk, SIL Open Font License 1.1 (`assets/fonts/OFL.txt`). No está cubierta por la licencia MIT.
@@ -143,7 +143,7 @@ there is no HTTPS. You can also open `index.html` directly in the browser.
 
 ## Credits and licences
 
-- Code: MIT licence (see `LICENSE`).
+- Code: MIT licence (see `LICENSE`). Notices on what it does not cover (images, typeface and brand) are in [`NOTICE.md`](NOTICE.md).
 - Photographs, nautical chart and video: Wikimedia Commons, under CC BY-SA 4.0, CC0, CC BY 2.5 and public domain.
   Details in `CREDITOS.md` and `creditos.html`.
 - Typeface: Hanken Grotesk, SIL Open Font License 1.1 (`assets/fonts/OFL.txt`). Not covered by the MIT licence.

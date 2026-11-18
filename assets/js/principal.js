@@ -169,9 +169,9 @@
   var elegida = 'ventresca';
   var caja = [];
 
-  // Formato de euros en español / Euro format in Spanish
+  // Formato de euros en español, con espacio duro antes del «€» / Euro format in Spanish, non-breaking space before "€"
   function euros(n) {
-    return n.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+    return n.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
   }
 
   // Pinta la pieza elegida en pestañas, dibujo y ficha / Paints the chosen cut on tabs, drawing and card

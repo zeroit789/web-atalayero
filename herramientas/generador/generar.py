@@ -13,6 +13,7 @@ Necesita / Needs: Python 3.10+ y Pillow (solo para las imágenes OG / only for t
 """
 import html
 import json
+import re
 from pathlib import Path
 
 # ===== Rutas y constantes / Paths and constants =====
@@ -473,6 +474,9 @@ def ficheros_tecnicos():
         "  X-Content-Type-Options: nosniff\n"
         "  Referrer-Policy: strict-origin-when-cross-origin\n"
         "  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()\n"
+        # Además del <meta name="robots">, la cabecera: así tampoco se indexan las imágenes ni los ficheros sueltos.
+        # Besides the <meta name="robots">, the header: so images and loose files are not indexed either.
+        "  X-Robots-Tag: noindex, follow\n"
         "\n# Caché larga para fuentes e imágenes / Long cache for fonts and images\n"
         "/assets/fonts/*\n  Cache-Control: public, max-age=31536000, immutable\n"
         "/assets/img/*\n  Cache-Control: public, max-age=2592000\n", encoding="utf-8")
@@ -491,6 +495,9 @@ def construir():
                   .replace("{{TARIFA}}", tarifa()).replace("{{PEZ_GRANDE}}", pez_grande()))
         for g in CATALOGO:
             cuerpo = cuerpo.replace("{{PRODUCTOS:" + g + "}}", productos(g))
+        # Espacio duro entre la cifra y el «€», para que el símbolo no se quede solo en otra línea.
+        # Non-breaking space between the figure and "€", so the symbol never ends up alone on another line.
+        cuerpo = re.sub(r"(\d) €", "\\1\u00a0€", cuerpo)
         if raiz:
             cuerpo = cuerpo.replace('src="assets/', 'src="/assets/')
         doc = (cabeza(nombre, ruta, titulo, descripcion, nombre, raiz) + "\n<body>\n"

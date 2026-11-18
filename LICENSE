@@ -19,21 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-Esta licencia cubre solo el código (HTML, CSS, JavaScript y scripts).
-This licence covers the code only (HTML, CSS, JavaScript and scripts).
-
-- Las fotografías, la carta náutica y el vídeo de assets/img y assets/video tienen
-  la licencia de sus autores (CC BY-SA 4.0, CC0, CC BY 2.5 o dominio público):
-  ver CREDITOS.md.
-  The photographs, nautical chart and video in assets/img and assets/video keep
-  their authors' licences (CC BY-SA 4.0, CC0, CC BY 2.5 or public domain):
-  see CREDITOS.md.
-- La tipografía Hanken Grotesk de assets/fonts se rige por la SIL Open Font
-  License 1.1 (assets/fonts/OFL.txt).
-  The Hanken Grotesk typeface in assets/fonts is governed by the SIL Open Font
-  License 1.1 (assets/fonts/OFL.txt).
-- El nombre «Conservas Atalayero» y la marca son ficticios.
-  The name "Conservas Atalayero" and its mark are fictional.
